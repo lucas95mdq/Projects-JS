@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: linear-gradient(60deg, rgb(108, 180, 202), rgb(54, 48, 77));
+}
+
+.titulo {
+    margin: 2rem auto;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+}
+.contenedor {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.calculator {
+    position: absolute;
+    background-color: rgb(29, 29, 29);
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 30px rgb(54, 48, 77) ;
+}
+.display {
+    height: 6rem;
+    background-color: rgb(53, 53, 53);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#display {
+    height: 100%;
+    display:flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    color: yellowgreen;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+button{
+    border-radius: 50%;
+    padding: 1rem;
+    width: 3rem;
+    height: 3rem;
+    margin: 0.30rem;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#clear {
+    background-color: #b8e946;
+    color: black;
+}
+.btn-operator {
+    background-color: rgb(106, 106, 245);
+    color: #fff;
+}
+
+.theme-toggler {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    z-index: 1;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background-color: #333;
+}
+
+.active{
+    background-color: yellowgreen;
+}
+#equal {
+    height: 6.6rem;
+    border-radius: 1rem;
+}
+
