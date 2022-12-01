@@ -1,11 +1,41 @@
+:root {
+    --theme-color: linear-gradient(60deg, rgb(170, 180, 150), rgb(77, 64, 48));
+    --buttons-num-color: black;
+    --button-clear:rgb(175, 228, 70);
+    --button-operator: rgb(159, 159, 247);
+    --background-calculator: rgb(202, 200, 200);
+    --calculator-shadow: 0 0 30px rgb(54, 48, 77);
+    --display-background:rgb(189, 179, 179);
+    --button-operator-color: black;
+    --button-number-background-color:rgb(151, 151, 151);
+    --button-number-color:black;
+    --button-toggler: rgb(53, 53, 53);
+}
+
+    :root[data-theme="dark"] {
+    --theme-color: linear-gradient(60deg, rgb(108, 180, 202), rgb(54, 48, 77));
+    --buttons-num-color: white;
+    --button-clear:yellowgreen;
+    --button-operator: rgb(106, 106, 245);
+    --background-calculator: rgb(29, 29, 29);
+    --calculator-shadow: 0 0 30px rgb(54, 48, 77);
+    --display-background:rgb(53, 53, 53);
+    --button-operator-color: #fff;
+    --button-number-color:#fff;
+    --button-number-background-color:#fff;
+    --button-number-color:black;
+    --button-toggler: yellowgreen;
+}
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    transition: all 200ms ease;
 }
+
 body{
-    background: linear-gradient(60deg, rgb(108, 180, 202), rgb(54, 48, 77));
+    background: var(--theme-color)
 }
 
 .titulo {
@@ -26,14 +56,14 @@ body{
 
 .calculator {
     position: absolute;
-    background-color: rgb(29, 29, 29);
+    background-color: var(--background-calculator);
     padding: 2rem;
     border-radius: 2rem;
-    box-shadow: 0 0 30px rgb(54, 48, 77) ;
+    box-shadow: var(--calculator-shadow);
 }
 .display {
     height: 6rem;
-    background-color: rgb(53, 53, 53);
+    background-color: var(--display-background);
     padding: 1rem;
     border-radius: 1rem;
     margin-top: 1rem;
@@ -44,7 +74,7 @@ body{
     display:flex;
     align-items: flex-end;
     justify-content: flex-end;
-    color: yellowgreen;
+    color: var(--button-clear);
     font-size: 2rem;
     font-weight: 400;
 }
@@ -65,32 +95,49 @@ button:hover {
 }
 
 #clear {
-    background-color: #b8e946;
+    --button-clear:
+    background-color: var(--button-clear)
     color: black;
 }
 .btn-operator {
-    background-color: rgb(106, 106, 245);
-    color: #fff;
+    background-color: var(--button-operator);
+    color: var(--button-operator-color);
+}
+.btn-number {
+    background-color:var(--button-number-background-color) ;
+    color: var(--button-number-color);
 }
 
-.theme-toggler {
-    position: absolute;
-    top: 30px;
-    right: 0px;
-    z-index: 1;
-    cursor: pointer;
-    height: 30px;
-    width: 30px;
-    transform: translate(-50%,-50%);
-    border-radius: 50%;
-    background-color: #333;
-}
 
-.active{
-    background-color: yellowgreen;
-}
 #equal {
     height: 6.6rem;
     border-radius: 1rem;
 }
 
+.theme-toggler {
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+.toggler-dark, .toggler-light {
+    color: var(--button-toggler);
+    padding: 0rem;
+    border-bottom: none;
+    background-color: transparent;
+    transition: all 200ms ease;
+    position:absolute;
+    top: -1.5rem;
+    right: -1rem;
+    background-color: none;
+    width: 2rem;
+    height: 2rem;
+    scale: 1.3;
+}
+
+
+:root[data-theme="light"] .toggler-light {
+    display: none;
+}
+:root[data-theme="dark"] .toggler-dark {
+    display: none;
+}

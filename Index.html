@@ -1,19 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+    <script>
+        const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const userTheme = localStorage.getItem("theme");
+
+        if (userTheme === "dark" || (!userTheme && darkQuery.matches)){
+            setTheme("dark");
+        }
+
+        darkQuery.addEventListener("change",function(e) {
+            if(!userTheme)
+                setTheme(e.matches ? "dark" :"light");
+        });
+
+        function setTheme(newTheme) {
+        document.documentElement.setAttribute("data-theme",newTheme);
+        localStorage.setItem("theme",newTheme)
+        }
+
+    </script>
+
+
+
+
+
+
     <link rel="stylesheet" href="estilos/index.css">
     <title>Project 1 - Calculadora</title>
-
+    <script src="https://kit.fontawesome.com/9cb10a02ae.js" crossorigin="anonymous"></script>
+    <script defer src="toggler.js"></script>
 </head>
 <body>
     <h1 class="titulo">CALCULADORA</h1>
     <div class="contenedor">
-        <div class="calculator dark">
-            <div class="theme-toggler active">
-                <i class="toggler-icon"></i>
+        <div class="calculator">
+            <div class="theme-toggler">
+                <button class="toggler-dark"><i class="fa-solid fa-moon"></i></button>
+                <button class="toggler-light"><i class="fa-solid fa-sun"></i></button>
             </div>
             <div class="display">
                 <div id="display"></div>
